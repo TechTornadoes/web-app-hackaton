@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import logo from "../images/Modern Brain Tech Logo.png";
+import video from "../images/TechTornadoes.mp4"
 import axios from 'axios';
 
 
@@ -19,7 +20,7 @@ function LoginPage() {
   const handleClick = async () => {
     console.log("click");
     if (!onLoad) {
-      await axios.post(`http://${apiUrl}:5000/api/auth/create-session`)
+      await axios.post(`http://${apiUrl || "localhost"}:5000/api/auth/create-session`)
                 .then(response =>{
                   console.log(response);
                   setOnLoad(true)
@@ -83,11 +84,23 @@ function LoginPage() {
               <>S'authentifier avec NFC <i className="fa-brands fa-nfc-symbol"></i></>
             }
           </button>
+          <button className='how-to' data-bs-toggle="modal" data-bs-target="#exampleModal">Comment se connecter ?</button>
           {/* <p className='text-center'>Veuillez poursuivre avec l'app mobile</p> */}
           {
             code && <p className='code-section rounded px-5 py-3'>CODE : <span className='fw-bold text-primary'>{code}</span></p>
           }
           
+        </div>
+
+        {/* login */}
+        <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog modal-dialog-centered modal-xl">
+            <div className="modal-content">
+              <div className="modal-body">
+                <video className='video' controls autostart autoPlay src={video}></video>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
   )

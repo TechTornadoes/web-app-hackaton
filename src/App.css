@@ -69,6 +69,13 @@
   width: 90px;
 }
 
+.login > .info-section > .how-to{
+  border: 0;
+  background-color: transparent;
+  color: rgb(65, 185, 255);
+  /* text-decoration: underline; */
+}
+
 .login > .info-section > .code-section{
   border: 3px dashed white;
   max-width: fit-content;
@@ -76,6 +83,11 @@
   position: absolute;
   bottom: 200px;
 
+}
+
+.video{
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 1100px) {
