@@ -51,7 +51,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
 1. Clonez le dépôt :
 
 ```bash
-git clone <URL_du_dépôt>
+git clone https://github.com/TechTornadoes/web-app-hackaton.git
 ```
 
 2. Naviguez dans le répertoire du projet :
