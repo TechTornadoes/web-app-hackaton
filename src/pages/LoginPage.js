@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import logo from "../images/Modern Brain Tech Logo.png";
 import video from "../images/TechTornadoes.mp4"
 import axios from 'axios';
+import QRCode from 'qrcode.react'
+
 
 
 function LoginPage() {
-    const navigate = useNavigate()
+    const Navigate = useNavigate()
     const [code, setCode] = useState(null)
     const [onLoad, setOnLoad] = useState(false)
     const [authenticated, setAuthenticated] = useState(false)
@@ -14,7 +16,7 @@ function LoginPage() {
     const apiUrl = process.env.REACT_APP_API_URL
 
     useEffect(()=>{
-        if(localStorage.token) navigate('/')
+        if(localStorage.token) Navigate('/')
     })
 
   const handleClick = async () => {
@@ -43,15 +45,23 @@ function LoginPage() {
                       .then( response => {
                         console.log(response);
                         data = response.data
+
+                        if (data.authenticated) {
+                          setAuthenticated(true);
+                          setOnLoad(false)
+                          clearInterval(interval);
+            
+                          localStorage.setItem('token',data.token)
+                            setTimeout(() => {
+                                Navigate('/')
+                            }, 1);
+                        }
                       })
                       .catch(error => {
+                        setOnLoad(false)
+                        setCode(null)
                         console.log(error);
                       })
-          if (data.authenticated) {
-              setAuthenticated(true);
-              setOnLoad(false)
-              clearInterval(interval);
-          }
         }, 3000); // Vérifier toutes les 3 secondes
 
         timeout = setTimeout(() => {
@@ -87,7 +97,11 @@ function LoginPage() {
           <button className='how-to' data-bs-toggle="modal" data-bs-target="#exampleModal">Comment se connecter ?</button>
           {/* <p className='text-center'>Veuillez poursuivre avec l'app mobile</p> */}
           {
-            code && <p className='code-section rounded px-5 py-3'>CODE : <span className='fw-bold text-primary'>{code}</span></p>
+              code &&
+              <div className='code-section rounded px-5 py-3'>
+                  <p className='text-dark'>CODE : <span className='fw-bold text-primary'>{code}</span></p>
+                  <QRCode className='qr-code' value={code} />
+              </div>
           }
           
         </div>
@@ -97,7 +111,7 @@ function LoginPage() {
           <div className="modal-dialog modal-dialog-centered modal-xl">
             <div className="modal-content">
               <div className="modal-body">
-                <video className='video' controls autostart autoPlay src={video}></video>
+                <video className='video' controls autostart src={video}></video>
               </div>
             </div>
           </div>
