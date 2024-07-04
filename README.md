@@ -1,43 +1,99 @@
-# Getting Started with Create React App
+# Web App Hackathon Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Ce projet est une application web développée en utilisant Create React App. Il s'agit d'une application front-end conçue pour un hackathon, offrant une interface utilisateur riche et interactive.
 
-In the project directory, you can run:
+## Structure du projet
 
-### `npm start`
+```
+web-app-hackaton-dev/
+│
+├── public/
+│   ├── favicon.ico             # Icône du site web
+│   ├── index.html              # Page HTML principale
+│   ├── logo192.png             # Logo de l'application (192x192)
+│   ├── logo512.png             # Logo de l'application (512x512)
+│   ├── manifest.json           # Manifest du PWA
+│   └── robots.txt              # Fichier de configuration pour les robots d'indexation
+│
+├── src/
+│   ├── images/                 # Dossier contenant les images et vidéos
+│   │   ├── Modern Brain Tech Logo.png
+│   │   ├── pexels-anais-virel-1288641963-264049497.jpg
+│   │   ├── pexels-diva-20153179.jpg
+│   │   └── TechTornadoes.mp4
+│   │
+│   ├── pages/                  # Dossier contenant les pages de l'application
+│   │   ├── LoginPage.js
+│   │   └── Main.js
+│   │
+│   ├── App.css                 # Feuille de style pour l'application
+│   ├── App.js                  # Composant principal de l'application
+│   ├── index.css               # Feuille de style globale
+│   └── index.js                # Point d'entrée de l'application
+│
+├── .gitignore                  # Fichiers et dossiers à ignorer par Git
+├── package.json                # Fichier de configuration npm
+├── package-lock.json           # Fichier de verrouillage des dépendances npm
+└── README.md                   # Documentation du projet
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Prérequis
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
 
-### `npm test`
+- Node.js
+- npm (Node Package Manager)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. Clonez le dépôt :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/TechTornadoes/web-app-hackaton.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Naviguez dans le répertoire du projet :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd web-app-hackaton-dev
+```
 
-### `npm run eject`
+3. Installez les dépendances :
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Utilisation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Pour démarrer l'application en mode développement, utilisez la commande suivante :
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm start
+```
+
+Cela lancera l'application et vous pourrez y accéder via `http://localhost:3000` dans votre navigateur. La page se rechargera automatiquement lorsque vous apportez des modifications.
+
+## Scripts disponibles
+
+Dans le répertoire du projet, vous pouvez exécuter les scripts suivants :
+
+- `npm start`: Exécute l'application en mode développement.
+- `npm test`: Lance le runner de tests en mode interactif.
+- `npm run build`: Construit l'application pour la production dans le dossier `build`. Il regroupe correctement React en mode production et optimise la construction pour obtenir les meilleures performances.
+- `npm run eject`: Si vous souhaitez avoir un contrôle total sur la configuration des fichiers, vous pouvez exécuter ce script. **Note:** cette action est irréversible.
+
+## Déploiement
+
+Pour déployer l'application en production, exécutez la commande suivante :
+
+```bash
+npm run build
+```
+
+Cela créera un dossier `build` contenant les fichiers optimisés pour la production. Vous pouvez ensuite déployer le contenu de ce dossier sur un service d'hébergement de votre choix.
 
 ## Learn More
 
