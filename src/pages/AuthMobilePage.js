@@ -13,6 +13,7 @@ function AuthMobilePage() {
         console.log(isMobile);
 
         const token = window.location.pathname.split('/')[2]
+        console.log(token);
         const authenticate = async () => {
             await axios.get(`http://${apiUrl || "localhost"}:5000/api/auth/validate-sans-code/${token}`)
                 .then(response => {
@@ -34,12 +35,8 @@ function AuthMobilePage() {
                 Navigate('/login')
             }, 3000);
         }else{
-            authenticate()
+             authenticate()
         }
-        // authenticate()
-
-        // return () => {
-        // };
     }, []);
   return (
     <div className='mobile-auth py-3'>
